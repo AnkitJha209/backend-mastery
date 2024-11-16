@@ -1,0 +1,22 @@
+{
+  "name": "03_express_postman",
+  "version": "1.0.0",
+  "description": "a simple express server",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev" : "nodemon index.js"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Ankit Jha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
