@@ -5,16 +5,19 @@ export const updateTodo = async (req, res) => {
     try {
         const id = req.params.id;
         const {title, description} = req.body
-        const todo = Todo.findById({_id : id})
-        if(!todo){
-            res.status(404).json({
-                success: 'Failure',
-                msg: "Id not found"
-            })
-        }
-        todo.title = title
-        todo.description = description
-        res.status(200).json({
+        const todo = await Todo.findByIdAndUpdate(
+            {_id : id},
+            {title: title, description: description}
+        )
+        console.log(todo)
+        // if(!todo){
+        //     res.status(404).json({
+        //         success: 'Failure',
+        //         msg: "Id not found"
+        //     })
+        // }
+
+        res.status(201).json({
             success: true,
             dataUpdated : todo,
             msg: "Data has been Updated"
