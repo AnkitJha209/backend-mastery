@@ -32,11 +32,11 @@ export const liked = async (req, res) => {
 export const disliked = async (req, res) => {
   try {
     const { post, like } = req.body;
-    const liked = await Like.findById({ _id: like });
+    const disliked = await Like.findOneAndDelete({post:post, _id: like });
 
     const updatePost = await Post.findByIdAndUpdate(
       { _id: post },
-      { $pull: { likes: liked._id } },
+      { $pull: { likes: disliked._id } },
       { new: true }
     )
       .populate("likes")
