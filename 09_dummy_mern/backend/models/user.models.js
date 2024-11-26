@@ -18,7 +18,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    department: {
+    dept: {
         type: String,
         required: true,
     }
